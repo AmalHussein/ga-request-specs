@@ -1,3 +1,33 @@
-- Run rake db:test:prepare
+- Init the development DB
+  rake db:drop, db:reset
 
-- rake spec
+- Start the server and look around a little, pretty simple app
+  rails s
+
+- Init the test database.
+  rake dbtest:prepare
+
+- Run the specs
+  rspec spec
+
+- Add capybara to the Gemfile, and run bundle install
+  Capybara is a gem that gives us methods we can use in our tests to simulate 
+  a user. It allows us to visit pages, click links, fill in forms etc. 
+  It also allow us to determine if a page's elements,(HTML tags, content, etc), exist.
+
+  https://github.com/jnicklas/capybara
+
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+end
+
+- Add the directory spec/features
+- Add this to the spec/spec_helper.rb file
+require 'capybara/rspec'
+
+- Create a spec to test the home/root page
+  * touch spec/features/home_spec.rb
+
+- Create a spec to test user registration.
+  * touch spec/features/registration_spec.rb
