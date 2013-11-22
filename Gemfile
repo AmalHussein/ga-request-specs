@@ -39,7 +39,11 @@ gem 'hiredis'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'redis-rails'
 
+# Echonest wrapper, music api
+gem 'echowrap'
+
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 2.0'
   gem 'pry'
   gem 'pry-debugger'
