@@ -1,7 +1,7 @@
 if [[ -d "${rvm_path:-$HOME/.rvm}/environments" && \
-      -s "${rvm_path:-$HOME/.rvm}/environments/ruby-2.0.0@login_playlist" ]] ; then 
-  \. "${rvm_path:-$HOME/.rvm}/environments/ruby-2.0.0@login_playlist"
+      -s "${rvm_path:-$HOME/.rvm}/environments/ruby-2.0.0@ga-request-specs" ]] ; then 
+  \. "${rvm_path:-$HOME/.rvm}/environments/ruby-2.0.0@ga-request-specs"
 else 
-rvm --create use  "ruby-2.0.0@login_playlist"    
+rvm --create use  "ruby-2.0.0@ga-request-specs"    
 fi
 bundle

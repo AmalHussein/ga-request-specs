@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: playlists
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  name       :string(255)
+#  state      :string(255)      default("private")
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Playlist < ActiveRecord::Base
 
   STATES = [PRIVATE = 'private', PUBLIC = 'public']

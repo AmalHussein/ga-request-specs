@@ -1,0 +1,3 @@
+- Run rake db:test:prepare
+
+- rake spec

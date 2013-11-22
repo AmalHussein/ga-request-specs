@@ -1,18 +1,39 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)
+#  password_digest :string(255)
+#  password_salt   :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 require 'spec_helper'
 
 describe User do
+
   subject do
     User.create(email: 'foo@example.com', password: 'foo')
   end
 
-  it { should have_many(:playlists) }
-  # it { should have_many(:songs).through(:playlists) }
+  describe "with playlists" do
+    let(:golden) do
+      Song.create(name: 'Golden Age',
+                  description: "The artist is Beck",
+                  url: 'http://www.youtube.com/watch?v=Y6zAT15vaFk')
+    end
+    let(:playlist1) do
+      pl = Playlist.create(name: 'rock', state: 'public')
+      pl.songs << golden
+      pl
+    end
 
-  it "should have validations" do
-    # subject.should validate_presence_of(:password)
-    subject.should validate_presence_of(:email)
-    #subject.should validate_confirmation_of(:password)
-     subject.should validate_uniqueness_of(:email)
+    before(:each) do
+      subject.playlists << playlist1
+    end
+    it { should have(1).playlists }
   end
 
 end
