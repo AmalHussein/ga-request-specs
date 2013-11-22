@@ -31,3 +31,7 @@ require 'capybara/rspec'
 
 - Create a spec to test user registration.
   * touch spec/features/registration_spec.rb
+
+
+- Add the database_cleaner to the Gemfile
+  gem 'database_cleaner'
