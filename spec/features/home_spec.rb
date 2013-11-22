@@ -18,7 +18,13 @@ feature 'Home/Root page' do
     find_link 'country'
     find_link 'New Playlist'
     # save_and_open_page
-    
+  end
+
+  scenario "with a logged in user" do
+    create_users
+    sign_in('foo@example.com', 'foo')
+    current_path.should == root_path
+    # save_and_open_page
   end
 end
 
