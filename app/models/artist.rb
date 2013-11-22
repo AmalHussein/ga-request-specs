@@ -14,6 +14,7 @@
 class Artist < ActiveRecord::Base
 
   def self.get_info(name)
+
     artist = Echowrap.artist_search(:name => name,
                                     :bucket => ['hotttnesss', 'familiarity', 'artist_location', 'songs'],
                                     :results => 1).first
